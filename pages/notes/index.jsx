@@ -1,7 +1,7 @@
-/** @jsxRuntime classic /
-/** @jsx jsx */
+/** @jsxImportSource theme-ui */
+
 import React from "react";
-import { jsx } from "theme-ui";
+
 
 import Link from "next/link";
 

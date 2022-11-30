@@ -1,6 +1,6 @@
-/** @jsx jsx */
-import { jsx } from "theme-ui";
-import React from 'react'
+/** @jsxImportSource theme-ui */
+
+import React from "react";
 
 import Link from "next/link";
 
@@ -23,11 +23,17 @@ const Nav = () => (
         height: "100%",
       }}
     >
-      <Link href="/" sx={{ fontWeight: "bold", fontSize: 4, cursor: "pointer" }}>
+      <Link
+        href="/"
+        sx={{ fontWeight: "bold", fontSize: 4, cursor: "pointer" }}
+      >
         Home
       </Link>
 
-      <Link href="/notes" sx={{ color: "text", fontSize: 3, cursor: "pointer" }}>
+      <Link
+        href="/notes"
+        sx={{ color: "text", fontSize: 3, cursor: "pointer" }}
+      >
         Notes
       </Link>
     </nav>
