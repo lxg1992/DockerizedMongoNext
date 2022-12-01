@@ -2,10 +2,9 @@
 
 import React from "react";
 
-
 import Link from "next/link";
 
-export default () => {
+const Notes = () => {
   const notes = new Array(15)
     .fill(1)
     .map((e, i) => ({ id: i, title: `This is my note ${i}` }));
@@ -23,7 +22,7 @@ export default () => {
         }}
       >
         {notes.map((note) => (
-          <div sx={{ width: "33%", p: 2 }}>
+          <div key={note.id} sx={{ width: "33%", p: 2 }}>
             <Link
               key={note.id}
               href="/notes/[id]"
@@ -40,3 +39,5 @@ export default () => {
     </div>
   );
 };
+
+export default Notes;
