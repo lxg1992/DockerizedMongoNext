@@ -4,6 +4,16 @@ import React from "react";
 
 import Link from "next/link";
 
+import Note from "../../db/models/Note";
+import dbConnect from "../../db/dbConnect";
+
+export async function getServerSideProps(ctx) {
+  await dbConnect();
+  return {
+    props: {},
+  };
+}
+
 const Notes = () => {
   const notes = new Array(15)
     .fill(1)
