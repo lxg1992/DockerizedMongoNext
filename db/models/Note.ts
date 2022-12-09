@@ -7,6 +7,7 @@ const NoteSchema = new mongoose.Schema({
   text: String,
 });
 
-module.exports = mongoose.models
-  ? mongoose.models.Note
-  : mongoose.model("Note", NoteSchema);
+module.exports =
+  mongoose.models && mongoose.models.Note
+    ? mongoose.models.Note
+    : mongoose.model("Note", NoteSchema);

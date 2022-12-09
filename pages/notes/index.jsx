@@ -8,7 +8,20 @@ import Note from "../../db/models/Note";
 import dbConnect from "../../db/dbConnect";
 
 export async function getServerSideProps(ctx) {
-  await dbConnect();
+  try {
+    // await dbConnect();
+    // const notess = await Note.find({});
+    // await Note.create({ title: "Test", text: "test text" });
+    // console.log({ notess });
+    return {
+      props: { notess: "lol" },
+    };
+  } catch (e) {
+    console.log(e);
+    return {
+      props: { notess: "error" },
+    };
+  }
   return {
     props: {},
   };

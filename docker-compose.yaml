@@ -37,8 +37,10 @@ services:
       - mongo
     links:
       - mongo
-      # mongo:
-      #   condition: service_healthy
+    environment:
+      - MONGODB_URI=mongodb://rootuser:rootpw@mongo:27017/admin
+        # mongo:
+        #   condition: service_healthy
 # networks:
 #   next-mongo-network:
 #     driver: bridge

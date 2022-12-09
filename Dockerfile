@@ -4,6 +4,7 @@ ENV HOST=0.0.0.0
 ENV PORT=3000
 ENV NODE_ENV=development
 COPY package.json package-lock.json ./
+COPY .env.local ./
 #COPY . .
 RUN npm install
 EXPOSE 3000
