@@ -7,30 +7,27 @@ import Link from "next/link";
 import Note from "../../db/models/Note";
 import dbConnect from "../../db/dbConnect";
 
-export async function getServerSideProps(ctx) {
-  try {
-    // await dbConnect();
-    // const notess = await Note.find({});
-    // await Note.create({ title: "Test", text: "test text" });
-    // console.log({ notess });
-    return {
-      props: { notess: "lol" },
-    };
-  } catch (e) {
-    console.log(e);
-    return {
-      props: { notess: "error" },
-    };
-  }
+export async function getServerSideProps(ctx: any) {
+  // await dbConnect();
+  // const notess = await Note.find({});
+  // await Note.create({ title: "Test", text: "test text" });
+  const res = await fetch(`http://localhost:3000/api/note/`);
+  const { data } = await res.json();
+
+  const help: string | undefined =
+    process.env.HELP_APP_URL || "env var undetected";
+
   return {
-    props: {},
+    props: {
+      notes: data,
+    },
   };
 }
 
-const Notes = () => {
-  const notes = new Array(15)
-    .fill(1)
-    .map((e, i) => ({ id: i, title: `This is my note ${i}` }));
+const Notes = ({ notes }: { notes: any[] }) => {
+  // const notes = new Array(15)
+  //   .fill(1)
+  //   .map((e, i) => ({ id: i, title: `This is my note ${i}` }));
 
   return (
     <div sx={{ variant: "containers.page" }}>
